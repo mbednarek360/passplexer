@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <script src="hash.js"></script>
+        <script src="b91.js"></script>
+        <script src="script.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>PassPlex</title>
+    </head>
+
+    <body>
+    <center>
+
+        <div>
+                <h1 id="title">PassPlex</h1>
+                <h3 id="subtitle">A Password Obfuscation Algorithm</h3>
+         </div><br>
+
+        <div>
+            <br>
+            <b>Service Name</b><br>
+            <input id="service" type="text"><br><br>
+
+            <b>Username</b><br>
+            <input id="username" type="text"><br><br>
+
+            <b>Master Password</b><br>
+            <input id="master" onkeydown="if (event.keyCode == 13) { passGen() }" type="password"><br><br>
+       
+        </div><br>
+
+        <div>
+
+            <button id="genbutton" onclick="passGen()">Generate</button>
+
+        </div><br>
+
+
+        <p id="ver">v0.1.2</p>
+        <a id="sig" href='https://github.com/mbednarek360/passgen'>Made by Michael Bednarek</p>
+
+
+
+        
+    
+
+    </center>
+    </body> 
+</html>
