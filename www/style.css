@@ -29,6 +29,7 @@ div {
     background-color: var(--nord1);
     border: 2px solid var(--nord3);
     width: 25%;
+    min-width: 500px;
     padding: 16px;
 }
 
@@ -40,6 +41,7 @@ input[type="text"], input[type="password"] {
     color: var(--nord6);
     background-color: var(--nord2);
     width: 50%;
+    min-width: 250px;
     border: 2px solid var(--nord0);
     padding: 6px;
     margin-top: 5px;
@@ -53,6 +55,7 @@ button {
     border: 2px solid var(--nord0);
     padding: 8px;
     width: 50%;
+    min-width: 250px;
 }
 
 button::-moz-focus-inner {

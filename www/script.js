@@ -39,7 +39,7 @@ function passGen() {
         let out = base91.encode(outhash);
 
         // copy to clipboard
-        navigator.clipboard.writeText(out);
+        copy(out);
 
         // clear password
         document.getElementById("master").value = "";
@@ -48,6 +48,17 @@ function passGen() {
         setMessage("Copied to Clipboard");
 
     }
+}
+
+// copy to clipboard
+function copy(text) {
+    var input = document.createElement('input');
+    input.setAttribute('value', text);
+    document.body.appendChild(input);
+    input.select();
+    var result = document.execCommand('copy');
+    document.body.removeChild(input)
+    return result;
 }
 
 // delay
