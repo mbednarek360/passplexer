@@ -10,16 +10,16 @@ function passGen() {
         setMessage("Invalid Fields");
     }
 
-    // invalid fields
+    // valid fields
     else {
 
         // hash them
         var SHA1 = new jsSHA("SHA-1", "TEXT");
-        SHA1.update(service);   
+        SHA1.update(service + "\n" + password);   
         service = SHA1.getHash("BYTES");
-        SHA1.update(username);
+        SHA1.update(service + "\n" + username);
         username = SHA1.getHash("BYTES");
-        SHA1.update(password);
+        SHA1.update(password + "\n" + username);
         password = SHA1.getHash("BYTES");
 
         // interlace

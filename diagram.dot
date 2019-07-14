@@ -1,31 +1,56 @@
 digraph d {
 
-    // input nodes
-    s [label = "Service"];
-    u [label = "Username"];
-    p [label = "Password"];
+    // settings
+    graph [fontsize=16 compound=true, splines=ortho];
+    node [shape=rect fontsize=14, style=filled];
 
-    // hash nodes
-    sh [label = "SHA-1"];
-    uh [label = "SHA-1"];
-    ph [label = "SHA-1"];
+    // inputs
+    subgraph cluster_input {
 
-    // hash inputs
-    s -> sh
-    u -> uh
-    p -> ph
+        // label
+        label = "Input";
 
-    // interlace
-    i [label = "Interlace"];
-    sh -> i
-    uh -> i
-    ph -> i
+        // input nodes
+        s [label = "Service"];
+        u [label = "Username"];
+        p [label = "Password"];
 
-    // final hash
-    fh [label = "SHA3-256"];
-    i -> fh
 
-    // encoding
-    out [label = "Base 91"];
-    fh -> out;
+    }
+
+    // hashes
+    subgraph cluster_hash {
+
+        // hash nodes
+        sh [label = "SHA-1"];
+        uh [label = "SHA-1"];
+        ph [label = "SHA-1"];
+
+        // hash inputs
+        s -> {sh, uh}
+        u -> {uh, ph}
+        p -> {ph, sh}
+
+        // interlace
+        i [label = "Interlace"];
+        sh -> i
+        uh -> i
+        ph -> i
+
+        // final hash
+        fh [label = "SHA3-256"];
+        i -> fh
+    }
+
+    // output
+    subgraph cluster_output {
+
+        // label
+        label = "Output"
+        labelloc="b"
+
+        // encoding
+        out [label = "Base 91"];
+        fh -> out;
+    }
 }
