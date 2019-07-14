@@ -1,0 +1,31 @@
+digraph d {
+
+    // input nodes
+    s [label = "Service"];
+    u [label = "Username"];
+    p [label = "Password"];
+
+    // hash nodes
+    sh [label = "SHA-1"];
+    uh [label = "SHA-1"];
+    ph [label = "SHA-1"];
+
+    // hash inputs
+    s -> sh
+    u -> uh
+    p -> ph
+
+    // interlace
+    i [label = "Interlace"];
+    sh -> i
+    uh -> i
+    ph -> i
+
+    // final hash
+    fh [label = "SHA3-256"];
+    i -> fh
+
+    // encoding
+    out [label = "Base 91"];
+    fh -> out;
+}
