@@ -1,0 +1,26 @@
+[package]
+name = "passplexer"
+version = "0.1.0"
+authors = ["Michael Bednarek <mbednarek360@protonmail.com>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+wasm-bindgen="*"
+gloo="*"
+
+[dependencies.web-sys]
+version = "*"
+features = [
+  'Document',
+  'Element',
+  'HtmlElement',
+  'Node',
+  'Window'
+]
+
+[[bin]]
+name = "passplexer"
+path = "lib.rs"

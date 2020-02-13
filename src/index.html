@@ -1,9 +1,6 @@
 <html>
     <meta charset="UTF-8">
     <head>
-        <script src="hash.js"></script>
-        <script src="b91.js"></script>
-        <script src="script.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
         <title>PassPlexer</title>
     </head>
@@ -19,24 +16,34 @@
         <div>
             <br>
             <b>Service Name</b><br>
-            <input id="service" type="text"><br><br>
+            <input id="service_input" type="text"><br><br>
 
             <b>Username</b><br>
-            <input id="username" type="text"><br><br>
+            <input id="username_input" type="text"><br><br>
 
             <b>Master Password</b><br>
-            <input id="master" onkeydown="if (event.keyCode == 13) { passGen() }" type="password"><br><br>
+            <input id="master_input" type="password"><br><br>
        
         </div><br>
 
         <div>
 
-            <button id="genbutton" onclick="passGen()">Generate</button>
+            <button id="gen_button">Generate</button>
 
         </div><br>
 
         <p id="ver">v0.1.4</p>
         <a id="sig" href="http://github.com/mbednarek360/passplexer">Made by Michael Bednarek</p>
     </center>
-    </body> 
+
+    <!--load wasm module-->
+    <script type="module">
+      import init, { setup } from './pkg/passplexer.js';
+      async function run() {
+        await init();
+        await setup();
+      }
+      run();
+    </script>
+    </body>
 </html>
