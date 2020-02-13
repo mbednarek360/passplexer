@@ -23,4 +23,4 @@ features = [
 
 [[bin]]
 name = "passplexer"
-path = "lib.rs"
+path = "src/lib.rs"
