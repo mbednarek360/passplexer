@@ -4,7 +4,7 @@ use gloo::{events::EventListener};
 
 // run on load
 #[wasm_bindgen]
-pub fn setup() {
+pub fn main() {
 
     // setup dom
     let window: web_sys::Window = web_sys::window().expect("");    
@@ -12,6 +12,9 @@ pub fn setup() {
     
     // attach event listeners
     EventListener::new(&document.get_element_by_id("main_button").unwrap(), "click", move |_event| {
+        pass::pass_gen
+
+
 
     }).forget()
 

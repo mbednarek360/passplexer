@@ -38,10 +38,10 @@
 
     <!--load wasm module-->
     <script type="module">
-      import init, { setup } from './pkg/passplexer.js';
+      import init, { main } from './pkg/passplexer.js';
       async function run() {
         await init();
-        await setup();
+        await main();
       }
       run();
     </script>
