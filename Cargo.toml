@@ -10,6 +10,8 @@ crate-type = ["cdylib", "rlib"]
 [dependencies]
 wasm-bindgen="*"
 gloo="*"
+blake3="*"
+zero85="*"
 
 [dependencies.web-sys]
 version = "*"
@@ -17,6 +19,7 @@ features = [
   'Document',
   'Element',
   'HtmlElement',
+  'HtmlInputElement',
   'Node',
   'Window'
 ]
