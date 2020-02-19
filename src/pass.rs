@@ -2,7 +2,7 @@ use blake3;
 use zero85::ToZ85;
 
 // salt: map index for service list
-pub fn pass_gen(username: String, master: String, salt: u128) -> String {
+pub fn pass_gen(username: String, master: String, salt: u64) -> String {
 
     // hash user and master
     let user_hash: [u8; 32] = *blake3::hash(username.as_bytes()).as_bytes();
@@ -20,7 +20,9 @@ pub fn pass_gen(username: String, master: String, salt: u128) -> String {
     let mut index = 0;
     for byte in &salt.to_le_bytes() {
         hash_key[index] = *byte;
+        hash_key[index + 8] = *byte;
         hash_key[index + 16] = *byte;
+        hash_key[index + 24] = *byte;
         index += 1;
     }
 

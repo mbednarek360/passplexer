@@ -1,6 +1,6 @@
 [package]
 name = "passplexer"
-version = "0.1.0"
+version = "0.2.1"
 authors = ["Michael Bednarek <mbednarek360@protonmail.com>"]
 edition = "2018"
 
@@ -21,7 +21,8 @@ features = [
   'HtmlElement',
   'HtmlInputElement',
   'Node',
-  'Window'
+  'Window',
+  'ClipboardEvent'
 ]
 
 [[bin]]

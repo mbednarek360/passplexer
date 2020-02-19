@@ -15,8 +15,8 @@
 
         <div>
             <br>
-            <b>Service Name</b><br>
-            <input id="service_input" type="text"><br><br>
+            <b>Service ID</b><br>
+            <input id="salt_input" type="number" min="0" max="18446744073709552000"><br><br>
 
             <b>Username</b><br>
             <input id="username_input" type="text"><br><br>
@@ -32,18 +32,21 @@
 
         </div><br>
 
-        <p id="ver">v0.1.4</p>
+        <p id="ver">v0.2.1</p>
         <a id="sig" href="http://github.com/mbednarek360/passplexer">Made by Michael Bednarek</p>
     </center>
 
     <!--load wasm module-->
     <script type="module">
       import init, { main } from './pkg/passplexer.js';
-      async function run() {
+     async function run() {
         await init();
         await main();
       }
-      run();
+     run();
+
+
+
     </script>
     </body>
 </html>

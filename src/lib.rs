@@ -15,6 +15,15 @@ macro_rules! console_log {
     ($($t:tt)*) => (log(&format_args!($($t)*).to_string()))
 }
 
+// copy text
+fn copy_string(input: String) {
+
+
+
+
+    web_sys::ClipboardEvent::new("copy");
+}
+
 // run on load
 #[wasm_bindgen]
 pub fn main() {
@@ -30,6 +39,9 @@ pub fn main() {
                     .unwrap().dyn_into::<web_sys::HtmlInputElement>().unwrap().value(),
             document.get_element_by_id("master_input")
                     .unwrap().dyn_into::<web_sys::HtmlInputElement>().unwrap().value(),
-        64));
+            document.get_element_by_id("salt_input")
+                    .unwrap().dyn_into::<web_sys::HtmlInputElement>().unwrap().value()
+                    .parse::<u64>().unwrap()
+        ));
     }).forget();
 }
