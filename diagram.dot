@@ -22,24 +22,27 @@ digraph d {
     subgraph cluster_hash {
 
         // hash nodes
-        sh [label = "SHA-1"];
-        uh [label = "SHA-1"];
-        ph [label = "SHA-1"];
+        uh [label = "BLAKE3"];
+        ph [label = "BLAKE3"];
 
         // hash inputs
-        s -> {sh, uh}
-        u -> {uh, ph}
-        p -> {ph, sh}
+        // s -> {sh, uh}
+        u -> {uh}
+        p -> {ph}
 
         // interlace
         i [label = "Interlace"];
-        sh -> i
         uh -> i
         ph -> i
 
+        // salt gen
+        sg [label = "LE Bytes"];
+        s -> sg;
+
         // final hash
-        fh [label = "SHA3-256"];
+        fh [label = "Keyed BLAKE3"];
         i -> fh
+        sg -> fh;
     }
 
     // output

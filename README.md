@@ -10,7 +10,7 @@ to come to a conclusion about such password. If such an attacker managed to find
 
 This does not mean you should use a bad master password and expect infinite security. It just makes it easier to mitigate poor habits. If an attacker knew your username and service, then all they would need to is break two hashes, although if the password is stored in plaintext, this is better than none.
 
-No user information is logged or transmitted by using this program. Ever. This can be run entirely offline.
+No user information is logged or transmitted by using this program. This can be run entirely offline.
 
 ---
 ## **Algorithm**

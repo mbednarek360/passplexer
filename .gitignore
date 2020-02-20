@@ -1,3 +1,4 @@
 src/pkg/*
 Cargo.lock
 target/*
+*.tar.bz2
