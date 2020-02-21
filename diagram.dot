@@ -18,8 +18,8 @@ digraph d {
     subgraph cluster_hashing {
 
         // hashes
-        user_hash [label = "blake3() -> [u8; 32]"];
-        master_hash [label = "blake() -> [u8; 32]"];
+        user_hash [label = "blake3() -> [u8; 16]"];
+        master_hash [label = "blake() -> [u8; 16]"];
         salted_hash [label = "keyed_blake3() -> [u8; 32]"];
 
     }
@@ -30,7 +30,7 @@ digraph d {
         // conversion functions
         base85 [label = "base85() -> String"];
         salt_gen [label = "decode() -> [u8; 32]"];
-        interlace [label = "interlace() -> [u8; 64]"];
+        interlace [label = "interlace() -> [u8; 32]"];
 
     }
 
