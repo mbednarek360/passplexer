@@ -6,6 +6,7 @@ fn from_slice(bytes: &[u8]) -> [u8; 16] {
     let mut array = [0; 16];
     let bytes = &bytes[..array.len()];
     array.copy_from_slice(bytes);
+    array
 }
 
 // salt: map index for service list
