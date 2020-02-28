@@ -2,17 +2,7 @@ use wasm_bindgen::prelude::*;
 use wasm_bindgen::JsCast;
 use gloo::{events::EventListener};
 mod pass;
-
-// console log macro
-#[wasm_bindgen]
-extern "C" {
-    #[wasm_bindgen(js_namespace = console)]
-    fn log(s: &str);
-}
-#[macro_export]
-macro_rules! console_log {
-    ($($t:tt)*) => (log(&format_args!($($t)*).to_string()))
-}
+mod service;
 
 // javascript interop
 #[wasm_bindgen(module = "/src/copy.js")]
@@ -27,7 +17,8 @@ pub fn main() {
     // setup dom
     let window: web_sys::Window = web_sys::window().expect("");    
     let document: web_sys::Document = window.document().expect("");
-    
+    service::load_services();
+
     // attach event listener on button press
     EventListener::new(&document.get_element_by_id("gen_button").unwrap(), "click", move |_event| {
 
