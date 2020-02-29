@@ -33,7 +33,7 @@
 
         </div><br>
 
-        <p id="ver">v0.2.1</p>
+        <p id="ver">v0.2.2</p>
         <a id="sig" href="http://github.com/mbednarek360/passplexer">Made by Michael Bednarek</p>
     </center>
 
@@ -51,8 +51,8 @@
                         // add option
                         if (service == "") { return }
                         var opt = document.createElement("option");
-                        opt.innerHTML = service.split(",")[0]
-                        opt.value = service.split(",")[1]
+                        opt.innerHTML = service.split(",")[0];
+                        opt.value = service.split(",")[1];
                         document.getElementById("service_input").appendChild(opt);
                     });
                 }
