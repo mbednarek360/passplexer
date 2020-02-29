@@ -13,11 +13,7 @@ gloo="*"
 blake3="*"
 zero85="*"
 
-[dependencies.reqwest]
-version="*"
-features = [
-    "blocking"
-]
+console_error_panic_hook="*"
 
 [dependencies.web-sys]
 version = "*"
@@ -26,6 +22,7 @@ features = [
   'Element',
   'HtmlElement',
   'HtmlInputElement',
+  'HtmlSelectElement',
   'Node',
   'Window',
   'ClipboardEvent'

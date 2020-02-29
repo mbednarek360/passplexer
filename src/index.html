@@ -17,7 +17,6 @@
             <br>
             <b>Service</b><br>
             <select id="service_input" type="number" min="0" max="18446744073709552000">
-                <option value="12">B</option>
             </select><br><br>
 
             <b>Username</b><br>
@@ -41,14 +40,31 @@
     <!--load wasm module-->
     <script type="module">
       import init, { main } from './pkg/passplexer.js';
-     async function run() {
+      async function run() {
+
+        // populate selector
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                xhttp.responseText.split("\n").forEach(function(service) {
+
+                    // add option
+                    if (service == "") { return }
+                    var opt = document.createElement("option");
+                    opt.innerHTML = service.split(",")[0]
+                    opt.value = service.split(",")[1]
+                    document.getElementById("service_input").appendChild(opt);
+                });
+            }
+        };
+        xhttp.open("GET", localStorage.getItem("id_source"), true);
+        xhttp.send();
+
+        // rust interop
         await init();
         await main();
       }
      run();
-
-
-
     </script>
     </body>
 </html>
