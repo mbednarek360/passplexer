@@ -15,6 +15,9 @@
     --nord13: #ebcb8b;
     --nord14: #a3be8c;
     --nord15: #b48ead;
+
+    --error: var(--nord11);
+    --info: var(--nord14);
 }
 
 body {

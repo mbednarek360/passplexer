@@ -1,3 +1,4 @@
+// copies string to clipboard
 export function copy_clipboard(text) {
     var input = document.createElement('input');
     input.setAttribute('value', text);
