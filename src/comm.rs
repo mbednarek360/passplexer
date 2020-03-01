@@ -10,8 +10,11 @@ extern "C" {
 }
 
 // change subtitle to given message
-fn send(doc: &web_sys::Document, msg: String, error: bool) {
-    let element: web_sys::Element = doc.get_element_by_id("subtitle").unwrap();
+fn send(msg: String, error: bool) {
+
+    // setup element
+    let element: web_sys::Element =  web_sys::window().expect("").document()
+        .expect("").get_element_by_id("subtitle").unwrap();
 
     // set default subtitle
     unsafe { if PREV.is_empty() { PREV = element.inner_html(); } }
@@ -28,11 +31,11 @@ fn send(doc: &web_sys::Document, msg: String, error: bool) {
 }
 
 // send info
-pub fn info(doc: &web_sys::Document, msg: String) {
-    send(doc, msg, false);
+pub fn info(msg: String) {
+    send(msg, false);
 }
 
 // send error
-pub fn error(doc: &web_sys::Document, msg: String) {
-    send(doc, msg, true);
+pub fn error(msg: String) {
+    send(msg, true);
 }

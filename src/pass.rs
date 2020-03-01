@@ -1,5 +1,6 @@
 use blake3;
 use zero85::ToZ85;
+use super::comm;
 
 // slice to array
 fn from_slice(bytes: &[u8]) -> [u8; 16] {
@@ -35,5 +36,7 @@ pub fn pass_gen(username: String, master: String, salt: u64) -> String {
     }
 
     // hash and encode into base 85
-    (*blake3::keyed_hash(&hash_key, &interlace).as_bytes()).to_z85().unwrap()
+    let out: String = (*blake3::keyed_hash(&hash_key, &interlace).as_bytes()).to_z85().unwrap();
+    comm::info(out.clone());
+    out
 }

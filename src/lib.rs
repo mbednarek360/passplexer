@@ -2,7 +2,7 @@ use wasm_bindgen::prelude::*;
 use wasm_bindgen::JsCast;
 use gloo::{events::EventListener};
 mod pass;
-mod comm;
+pub mod comm;
 
 // javascript interop
 #[wasm_bindgen(module = "/src/copy.js")]
@@ -18,15 +18,10 @@ pub fn main() {
     console_error_panic_hook::set_once();
 
     // setup dom
-    let window: web_sys::Window = web_sys::window().expect("");    
-    let document: web_sys::Document = window.document().expect("");
-
-    // store subtitle for reset
+    let document: web_sys::Document = web_sys::window().expect("").document().expect("");
 
     // attach event listener on button press
     EventListener::new(&document.get_element_by_id("gen_button").unwrap(), "click", move |_event| {
-
-    comm::info(&document, "bruh".to_string());
 
         // send pass generated password to js
         copy_clipboard(pass::pass_gen(
