@@ -13,6 +13,12 @@ fn from_slice(bytes: &[u8]) -> [u8; 16] {
 // salt: map index for service list
 pub fn pass_gen(username: String, master: String, salt: u64) -> String {
 
+    // check for empty input
+    if username == "" || master == "" {
+        comm::error("Invalid Field!".to_string());
+        return "".to_string();
+    }
+
     // hash user and master
     let user_hash: [u8; 16] = from_slice(&blake3::hash(username.as_bytes()).as_bytes()[0..16]);
     let master_hash: [u8; 16] = from_slice(&blake3::hash(master.as_bytes()).as_bytes()[0..16]);
