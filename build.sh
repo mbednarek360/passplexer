@@ -1,4 +1,7 @@
-rm -r src/pkg
+rm -rv src/pkg
+echo
 wasm-pack build --target web --release
-mv pkg src
-tar -cjvf passplexer_0.2.2.tar.bz2 --exclude='*.rs' src
+echo
+mv -v pkg src
+echo
+find src -name "*.js" -o -name ".wasm" | tar -cvjf passplexer_0.2.2.tar.bz2 -T -

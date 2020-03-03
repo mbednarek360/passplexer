@@ -16,7 +16,7 @@
         <div>
             <br>
             <b>Service</b><br>
-            <select id="service_input" type="number" min="0" max="18446744073709552000">
+            <select id="service_input">
             </select><br><br>
 
             <b>Username</b><br>
@@ -56,7 +56,7 @@
                         document.getElementById("service_input").appendChild(opt);
                     });
                 }
-            };
+            }
 
             // default
             if (localStorage.getItem("id_source") == null) {

@@ -6,7 +6,7 @@ static mut PREV: String = String::new();
 // sleep function
 #[wasm_bindgen(module = "/src/reset.js")]
 extern "C" {
-    fn reset(prev: String, time: u32);
+    fn reset(prev: String);
 }
 
 // change subtitle to given message
@@ -27,7 +27,10 @@ fn send(msg: String, error: bool) {
     ).unwrap();
 
     // return to title and style
-    unsafe { reset(PREV.clone(), 1000); }
+    unsafe { reset(PREV.clone()); }
+
+    // panic on error
+    if error { panic!(msg) }
 }
 
 // send info

@@ -1,8 +1,8 @@
 use wasm_bindgen::prelude::*;
 use wasm_bindgen::JsCast;
 use gloo::{events::EventListener};
-mod pass;
 pub mod comm;
+mod pass;
 
 // javascript interop
 #[wasm_bindgen(module = "/src/copy.js")]
